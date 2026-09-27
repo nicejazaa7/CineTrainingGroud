@@ -1,0 +1,9 @@
+# Source papers are copyrighted; keep them local, never publish them in the public repo
+docs/Source/*.pdf
+
+# Secrets
+.env
+.env.local
+*.env
+*.key.json
+serviceAccount*.json
