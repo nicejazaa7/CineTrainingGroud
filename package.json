@@ -1,0 +1,9 @@
+{
+  "name": "coronary-angiography-view-trainer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "build:points": "node scripts/build-points.js"
+  }
+}
