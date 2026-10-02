@@ -1,0 +1,57 @@
+{
+  "about": "Hand-written input for the right-dominant coronary tree model. Point names are Dodge 1988 locations (measured), 'left ostium' (the frame origin), or keys of 'authored'. Build with: npm run build:tree",
+  "authored": {
+    "R1/R2 boundary": { "guide": [-4.1, -3.35, 3.92], "note": "Segment 1/2 boundary, halfway between R1 mid and R2 mid. Dodge did not measure the first acute marginal origin." },
+    "R2/R3 boundary": { "guide": [-4.09, -6.15, 3.55], "note": "Segment 2/3 boundary (acute margin), halfway between R2 mid and R3 mid." },
+    "crux": { "guide": [-2.89, -7.46, 1.69], "note": "Origin of the PDA and start of the posterolateral, halfway between R3 mid and R4 mid. Dodge did not measure the RD origin." },
+    "LAD end": { "guide": [4.03, -9.42, 5.62], "note": "End of L4 on the inferior wall: L4 continued past L4 mid by 1.5 times the L4 proximal to L4 mid distance." },
+    "D1 distal": { "guide": [6.05, -3.42, 3.38], "note": "Distal half of D1: the origin-to-mid direction continued along the shell, 1.5 times the origin-to-mid distance." },
+    "D1 end": { "guide": [6.48, -4.5, 3.92], "note": "End of D1, twice the origin-to-mid distance along the shell (Dodge's mid point is half-way along the branch)." },
+    "D2 distal": { "guide": [6.06, -4.21, 5.22], "note": "Distal half of D2, continued along the shell as for D1." },
+    "D2 end": { "guide": [6.3, -5.32, 5.61], "note": "End of D2, twice the origin-to-mid distance along the shell." },
+    "D3 distal": { "guide": [5.73, -4.96, 6.42], "note": "Distal half of D3, continued along the shell as for D1." },
+    "D3 end": { "guide": [5.82, -6.09, 6.68], "note": "End of D3, twice the origin-to-mid distance along the shell." },
+    "OM1 distal": { "guide": [5.36, -4.64, 0.3], "note": "Distal half of M1, continued along the shell as for D1." },
+    "OM1 end": { "guide": [5.74, -5.83, 1.03], "note": "End of M1, twice the origin-to-mid distance along the shell." },
+    "OM2 distal": { "guide": [3.89, -5.78, -0.79], "note": "Distal half of M2, continued along the shell as for D1." },
+    "OM2 end": { "guide": [4.04, -6.89, -0.07], "note": "End of M2, twice the origin-to-mid distance along the shell." },
+    "LCx end": { "guide": [1.82, -5.18, -1.86], "note": "End of C3 in the posterior AV groove: C3 continued past C3 mid by the M2 origin to C3 mid distance." },
+    "PDA distal": { "guide": [2.08, -9.88, 4.36], "note": "Distal half of RD, continued from the crux through RD mid along the shell." },
+    "PDA end": { "guide": [3.13, -9.77, 4.84], "note": "End of RD, twice the crux-to-mid distance along the shell." },
+    "PLV distal": { "guide": [2.11, -7.75, -0.17], "note": "Distal RP: the R4 mid to RP mid direction continued along the shell. Dodge did not measure the RP origin." },
+    "PLV end": { "guide": [3.6, -7.5, 0.16], "note": "End of RP, one R4 mid to RP mid distance past RP mid along the shell." },
+    "RI distal": { "guide": [1.12, -8.83, 1.12], "note": "Distal half of RI. RI is drawn from R4 mid because Dodge did not measure the RI origin." },
+    "RI end": { "guide": [2.05, -9.04, 1.55], "note": "End of RI, twice the R4 mid to RI mid distance along the shell." }
+  },
+  "segments": [
+    { "syntax": "1", "name": "proximal RCA", "parent": null, "points": ["RCA ostium", "R1 proximal", "R1 mid", "R1/R2 boundary"] },
+    { "syntax": "2", "name": "mid RCA", "parent": "1", "points": ["R1/R2 boundary", "R2 mid", "R2/R3 boundary"] },
+    { "syntax": "3", "name": "distal RCA", "parent": "2", "points": ["R2/R3 boundary", "R3 mid", "crux"] },
+    { "syntax": "4", "name": "posterior descending", "parent": "3", "points": ["crux", "RD mid", "PDA distal", "PDA end"] },
+    { "syntax": "16", "name": "right posterolateral", "parent": "3", "points": ["crux", "R4 mid", "RP mid", "PLV distal", "PLV end"] },
+    { "syntax": "16a", "name": "first right posterolateral branch", "parent": "16", "points": ["R4 mid", "RI mid", "RI distal", "RI end"] },
+    { "syntax": "5", "name": "left main", "parent": null, "points": ["left ostium", "LM mid", "MR origin"] },
+    { "syntax": "6", "name": "proximal LAD", "parent": "5", "points": ["MR origin", "L1 proximal", "L1 mid", "D1 origin", "S1 origin"] },
+    { "syntax": "7", "name": "mid LAD", "parent": "6", "points": ["S1 origin", "D2 origin", "S2 origin", "L2 mid", "D3 origin", "S3 origin"] },
+    { "syntax": "8", "name": "apical LAD", "parent": "7", "points": ["S3 origin", "L3 mid", "L4 proximal (apex)", "L4 mid", "LAD end"] },
+    { "syntax": "9", "name": "first diagonal", "parent": "6", "points": ["D1 origin", "D1 mid", "D1 distal", "D1 end"] },
+    { "syntax": "10", "name": "second diagonal", "parent": "7", "points": ["D2 origin", "D2 mid", "D2 distal", "D2 end"] },
+    { "syntax": "10a", "name": "additional second diagonal", "parent": "7", "points": ["D3 origin", "D3 mid", "D3 distal", "D3 end"] },
+    { "syntax": "11", "name": "proximal LCx", "parent": "5", "points": ["MR origin", "C1 proximal", "C1 mid", "M1 origin"] },
+    { "syntax": "12a", "name": "first obtuse marginal", "parent": "11", "points": ["M1 origin", "M1 mid", "OM1 distal", "OM1 end"] },
+    { "syntax": "13", "name": "distal LCx", "parent": "11", "points": ["M1 origin", "C2 mid", "M2 origin", "C3 mid", "LCx end"] },
+    { "syntax": "12b", "name": "second obtuse marginal", "parent": "13", "points": ["M2 origin", "M2 mid", "OM2 distal", "OM2 end"] }
+  ],
+  "sideBranches": [
+    { "id": "S1", "name": "first septal", "parent": "6", "points": ["S1 origin", "S1 mid"] },
+    { "id": "S2", "name": "second septal", "parent": "7", "points": ["S2 origin", "S2 mid"] },
+    { "id": "S3", "name": "third septal", "parent": "7", "points": ["S3 origin", "S3 mid"] }
+  ],
+  "bifurcations": [
+    { "id": "LM", "name": "left main into LAD and LCx", "point": "MR origin", "parent": "5", "daughters": ["6", "11"], "note": "Dodge did not measure the LM bifurcation; the MR origin (n=7) is used because the paper places it at the LM trifurcation." },
+    { "id": "LAD-D1", "name": "LAD and first diagonal", "point": "D1 origin", "parent": "6", "daughters": ["6", "9"] },
+    { "id": "LAD-D2", "name": "LAD and second diagonal", "point": "D2 origin", "parent": "7", "daughters": ["7", "10"] },
+    { "id": "LCx-OM1", "name": "LCx and first obtuse marginal", "point": "M1 origin", "parent": "11", "daughters": ["13", "12a"] },
+    { "id": "crux", "name": "distal RCA into PDA and posterolateral", "point": "crux", "parent": "3", "daughters": ["4", "16"] }
+  ]
+}

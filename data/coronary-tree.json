@@ -1,0 +1,740 @@
+{
+  "source": "Dodge et al. Circulation 1988;78:1167 (measured points) plus authored points; see data/README.md",
+  "frame": "origin = left coronary ostium; x = patient left, y = head, z = anterior; cm",
+  "shell": {
+    "center": [
+      1.06,
+      -4.98,
+      3.17
+    ],
+    "axes": [
+      [
+        0.5881,
+        -0.4823,
+        0.6492
+      ],
+      [
+        0.8041,
+        0.2626,
+        -0.5334
+      ],
+      [
+        0.0868,
+        0.8357,
+        0.5423
+      ]
+    ],
+    "radii": [
+      6.19,
+      5.11,
+      4.24
+    ],
+    "rmsCm": 0.28
+  },
+  "points": {
+    "RCA ostium": {
+      "x": -1.44,
+      "y": -1.45,
+      "z": 3.09,
+      "source": "measured",
+      "dodge": "Table 3, RCA ostium"
+    },
+    "R1 proximal": {
+      "x": -1.88,
+      "y": -1.63,
+      "z": 3.24,
+      "source": "measured",
+      "dodge": "Table 5, R1 proximal"
+    },
+    "R1 mid": {
+      "x": -2.88,
+      "y": -2.14,
+      "z": 3.67,
+      "source": "measured",
+      "dodge": "Table 5, R1 mid"
+    },
+    "R1/R2 boundary": {
+      "x": -4.1,
+      "y": -3.35,
+      "z": 3.92,
+      "source": "authored",
+      "note": "Segment 1/2 boundary, halfway between R1 mid and R2 mid. Dodge did not measure the first acute marginal origin."
+    },
+    "R2 mid": {
+      "x": -4.37,
+      "y": -4.86,
+      "z": 4.04,
+      "source": "measured",
+      "dodge": "Table 5, R2 mid"
+    },
+    "R2/R3 boundary": {
+      "x": -4.09,
+      "y": -6.15,
+      "z": 3.55,
+      "source": "authored",
+      "note": "Segment 2/3 boundary (acute margin), halfway between R2 mid and R3 mid."
+    },
+    "R3 mid": {
+      "x": -3.73,
+      "y": -7.42,
+      "z": 3.05,
+      "source": "measured",
+      "dodge": "Table 5, R3 mid"
+    },
+    "crux": {
+      "x": -2.89,
+      "y": -7.46,
+      "z": 1.69,
+      "source": "authored",
+      "note": "Origin of the PDA and start of the posterolateral, halfway between R3 mid and R4 mid. Dodge did not measure the RD origin."
+    },
+    "RD mid": {
+      "x": 0.37,
+      "y": -8.82,
+      "z": 3.41,
+      "source": "measured",
+      "dodge": "Table 5, RD mid"
+    },
+    "PDA distal": {
+      "x": 2.08,
+      "y": -9.88,
+      "z": 4.36,
+      "source": "authored",
+      "note": "Distal half of RD, continued from the crux through RD mid along the shell."
+    },
+    "PDA end": {
+      "x": 3.13,
+      "y": -9.77,
+      "z": 4.84,
+      "source": "authored",
+      "note": "End of RD, twice the crux-to-mid distance along the shell."
+    },
+    "R4 mid": {
+      "x": -1.44,
+      "y": -7.11,
+      "z": 0.56,
+      "source": "measured",
+      "dodge": "Table 5, R4 mid"
+    },
+    "RP mid": {
+      "x": 1.13,
+      "y": -8.08,
+      "z": -0.58,
+      "source": "measured",
+      "dodge": "Table 5, RP mid"
+    },
+    "PLV distal": {
+      "x": 2.11,
+      "y": -7.75,
+      "z": -0.17,
+      "source": "authored",
+      "note": "Distal RP: the R4 mid to RP mid direction continued along the shell. Dodge did not measure the RP origin."
+    },
+    "PLV end": {
+      "x": 3.6,
+      "y": -7.5,
+      "z": 0.16,
+      "source": "authored",
+      "note": "End of RP, one R4 mid to RP mid distance past RP mid along the shell."
+    },
+    "RI mid": {
+      "x": 0.27,
+      "y": -8.49,
+      "z": 0.81,
+      "source": "measured",
+      "dodge": "Table 5, RI mid"
+    },
+    "RI distal": {
+      "x": 1.12,
+      "y": -8.83,
+      "z": 1.12,
+      "source": "authored",
+      "note": "Distal half of RI. RI is drawn from R4 mid because Dodge did not measure the RI origin."
+    },
+    "RI end": {
+      "x": 2.05,
+      "y": -9.04,
+      "z": 1.55,
+      "source": "authored",
+      "note": "End of RI, twice the R4 mid to RI mid distance along the shell."
+    },
+    "left ostium": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "source": "measured",
+      "dodge": "frame origin"
+    },
+    "LM mid": {
+      "x": 0.69,
+      "y": 0.05,
+      "z": 0.12,
+      "source": "measured",
+      "dodge": "Table 3, LM mid"
+    },
+    "MR origin": {
+      "x": 1.18,
+      "y": -0.21,
+      "z": 0.1,
+      "source": "measured",
+      "dodge": "Table 4, MR origin"
+    },
+    "L1 proximal": {
+      "x": 1.5,
+      "y": -0.08,
+      "z": 0.55,
+      "source": "measured",
+      "dodge": "Table 3, L1 proximal"
+    },
+    "L1 mid": {
+      "x": 2.04,
+      "y": -0.2,
+      "z": 1.04,
+      "source": "measured",
+      "dodge": "Table 3, L1 mid"
+    },
+    "D1 origin": {
+      "x": 2.77,
+      "y": -0.45,
+      "z": 1.54,
+      "source": "measured",
+      "dodge": "Table 3, D1 origin"
+    },
+    "S1 origin": {
+      "x": 2.73,
+      "y": -0.52,
+      "z": 1.78,
+      "source": "measured",
+      "dodge": "Table 3, S1 origin"
+    },
+    "D2 origin": {
+      "x": 3.51,
+      "y": -1.02,
+      "z": 3.27,
+      "source": "measured",
+      "dodge": "Table 3, D2 origin"
+    },
+    "S2 origin": {
+      "x": 3.53,
+      "y": -1.08,
+      "z": 3.66,
+      "source": "measured",
+      "dodge": "Table 3, S2 origin"
+    },
+    "L2 mid": {
+      "x": 3.6,
+      "y": -1.1,
+      "z": 3.73,
+      "source": "measured",
+      "dodge": "Table 3, L2 mid"
+    },
+    "D3 origin": {
+      "x": 4.14,
+      "y": -1.93,
+      "z": 4.76,
+      "source": "measured",
+      "dodge": "Table 3, D3 origin"
+    },
+    "S3 origin": {
+      "x": 3.98,
+      "y": -2.28,
+      "z": 5.29,
+      "source": "measured",
+      "dodge": "Table 3, S3 origin"
+    },
+    "L3 mid": {
+      "x": 4.28,
+      "y": -5.35,
+      "z": 7.42,
+      "source": "measured",
+      "dodge": "Table 3, L3 mid"
+    },
+    "L4 proximal (apex)": {
+      "x": 4.49,
+      "y": -8.78,
+      "z": 7.19,
+      "source": "measured",
+      "dodge": "Table 3, L4 proximal (apex)"
+    },
+    "L4 mid": {
+      "x": 4.22,
+      "y": -8.91,
+      "z": 6.49,
+      "source": "measured",
+      "dodge": "Table 3, L4 mid"
+    },
+    "LAD end": {
+      "x": 4.03,
+      "y": -9.42,
+      "z": 5.62,
+      "source": "authored",
+      "note": "End of L4 on the inferior wall: L4 continued past L4 mid by 1.5 times the L4 proximal to L4 mid distance."
+    },
+    "D1 mid": {
+      "x": 4.99,
+      "y": -2.42,
+      "z": 2.77,
+      "source": "measured",
+      "dodge": "Table 3, D1 mid"
+    },
+    "D1 distal": {
+      "x": 6.04,
+      "y": -3.42,
+      "z": 3.38,
+      "source": "authored",
+      "note": "Distal half of D1: the origin-to-mid direction continued along the shell, 1.5 times the origin-to-mid distance."
+    },
+    "D1 end": {
+      "x": 6.48,
+      "y": -4.5,
+      "z": 3.92,
+      "source": "authored",
+      "note": "End of D1, twice the origin-to-mid distance along the shell (Dodge's mid point is half-way along the branch)."
+    },
+    "D2 mid": {
+      "x": 5.31,
+      "y": -3.13,
+      "z": 4.61,
+      "source": "measured",
+      "dodge": "Table 3, D2 mid"
+    },
+    "D2 distal": {
+      "x": 6.06,
+      "y": -4.21,
+      "z": 5.22,
+      "source": "authored",
+      "note": "Distal half of D2, continued along the shell as for D1."
+    },
+    "D2 end": {
+      "x": 6.3,
+      "y": -5.32,
+      "z": 5.61,
+      "source": "authored",
+      "note": "End of D2, twice the origin-to-mid distance along the shell."
+    },
+    "D3 mid": {
+      "x": 5.41,
+      "y": -3.95,
+      "z": 6.01,
+      "source": "measured",
+      "dodge": "Table 3, D3 mid"
+    },
+    "D3 distal": {
+      "x": 5.73,
+      "y": -4.96,
+      "z": 6.42,
+      "source": "authored",
+      "note": "Distal half of D3, continued along the shell as for D1."
+    },
+    "D3 end": {
+      "x": 5.82,
+      "y": -6.09,
+      "z": 6.68,
+      "source": "authored",
+      "note": "End of D3, twice the origin-to-mid distance along the shell."
+    },
+    "C1 proximal": {
+      "x": 1.37,
+      "y": -0.29,
+      "z": 0.1,
+      "source": "measured",
+      "dodge": "Table 4, C1 proximal"
+    },
+    "C1 mid": {
+      "x": 1.64,
+      "y": -0.73,
+      "z": -0.11,
+      "source": "measured",
+      "dodge": "Table 4, C1 mid"
+    },
+    "M1 origin": {
+      "x": 1.84,
+      "y": -1.13,
+      "z": -0.39,
+      "source": "measured",
+      "dodge": "Table 4, M1 origin"
+    },
+    "M1 mid": {
+      "x": 4.41,
+      "y": -3.45,
+      "z": -0.08,
+      "source": "measured",
+      "dodge": "Table 4, M1 mid"
+    },
+    "OM1 distal": {
+      "x": 5.36,
+      "y": -4.64,
+      "z": 0.3,
+      "source": "authored",
+      "note": "Distal half of M1, continued along the shell as for D1."
+    },
+    "OM1 end": {
+      "x": 5.74,
+      "y": -5.83,
+      "z": 1.03,
+      "source": "authored",
+      "note": "End of M1, twice the origin-to-mid distance along the shell."
+    },
+    "C2 mid": {
+      "x": 2.23,
+      "y": -1.87,
+      "z": -1.09,
+      "source": "measured",
+      "dodge": "Table 4, C2 mid"
+    },
+    "M2 origin": {
+      "x": 2.27,
+      "y": -2.23,
+      "z": -1.2,
+      "source": "measured",
+      "dodge": "Table 4, M2 origin"
+    },
+    "C3 mid": {
+      "x": 2.14,
+      "y": -3.73,
+      "z": -2.14,
+      "source": "measured",
+      "dodge": "Table 4, C3 mid"
+    },
+    "LCx end": {
+      "x": 1.82,
+      "y": -5.18,
+      "z": -1.86,
+      "source": "authored",
+      "note": "End of C3 in the posterior AV groove: C3 continued past C3 mid by the M2 origin to C3 mid distance."
+    },
+    "M2 mid": {
+      "x": 3.57,
+      "y": -4.66,
+      "z": -1.23,
+      "source": "measured",
+      "dodge": "Table 4, M2 mid"
+    },
+    "OM2 distal": {
+      "x": 3.89,
+      "y": -5.78,
+      "z": -0.79,
+      "source": "authored",
+      "note": "Distal half of M2, continued along the shell as for D1."
+    },
+    "OM2 end": {
+      "x": 4.04,
+      "y": -6.89,
+      "z": -0.07,
+      "source": "authored",
+      "note": "End of M2, twice the origin-to-mid distance along the shell."
+    },
+    "S1 mid": {
+      "x": 2.11,
+      "y": -2.21,
+      "z": 3.02,
+      "source": "measured",
+      "dodge": "Table 3, S1 mid"
+    },
+    "S2 mid": {
+      "x": 2.61,
+      "y": -2.81,
+      "z": 4.35,
+      "source": "measured",
+      "dodge": "Table 3, S2 mid"
+    },
+    "S3 mid": {
+      "x": 3.13,
+      "y": -3.76,
+      "z": 5.42,
+      "source": "measured",
+      "dodge": "Table 3, S3 mid"
+    }
+  },
+  "segments": [
+    {
+      "syntax": "1",
+      "name": "proximal RCA",
+      "label": "proximal RCA (1)",
+      "parent": null,
+      "points": [
+        "RCA ostium",
+        "R1 proximal",
+        "R1 mid",
+        "R1/R2 boundary"
+      ]
+    },
+    {
+      "syntax": "2",
+      "name": "mid RCA",
+      "label": "mid RCA (2)",
+      "parent": "1",
+      "points": [
+        "R1/R2 boundary",
+        "R2 mid",
+        "R2/R3 boundary"
+      ]
+    },
+    {
+      "syntax": "3",
+      "name": "distal RCA",
+      "label": "distal RCA (3)",
+      "parent": "2",
+      "points": [
+        "R2/R3 boundary",
+        "R3 mid",
+        "crux"
+      ]
+    },
+    {
+      "syntax": "4",
+      "name": "posterior descending",
+      "label": "posterior descending (4)",
+      "parent": "3",
+      "points": [
+        "crux",
+        "RD mid",
+        "PDA distal",
+        "PDA end"
+      ]
+    },
+    {
+      "syntax": "16",
+      "name": "right posterolateral",
+      "label": "right posterolateral (16)",
+      "parent": "3",
+      "points": [
+        "crux",
+        "R4 mid",
+        "RP mid",
+        "PLV distal",
+        "PLV end"
+      ]
+    },
+    {
+      "syntax": "16a",
+      "name": "first right posterolateral branch",
+      "label": "first right posterolateral branch (16a)",
+      "parent": "16",
+      "points": [
+        "R4 mid",
+        "RI mid",
+        "RI distal",
+        "RI end"
+      ]
+    },
+    {
+      "syntax": "5",
+      "name": "left main",
+      "label": "left main (5)",
+      "parent": null,
+      "points": [
+        "left ostium",
+        "LM mid",
+        "MR origin"
+      ]
+    },
+    {
+      "syntax": "6",
+      "name": "proximal LAD",
+      "label": "proximal LAD (6)",
+      "parent": "5",
+      "points": [
+        "MR origin",
+        "L1 proximal",
+        "L1 mid",
+        "D1 origin",
+        "S1 origin"
+      ]
+    },
+    {
+      "syntax": "7",
+      "name": "mid LAD",
+      "label": "mid LAD (7)",
+      "parent": "6",
+      "points": [
+        "S1 origin",
+        "D2 origin",
+        "S2 origin",
+        "L2 mid",
+        "D3 origin",
+        "S3 origin"
+      ]
+    },
+    {
+      "syntax": "8",
+      "name": "apical LAD",
+      "label": "apical LAD (8)",
+      "parent": "7",
+      "points": [
+        "S3 origin",
+        "L3 mid",
+        "L4 proximal (apex)",
+        "L4 mid",
+        "LAD end"
+      ]
+    },
+    {
+      "syntax": "9",
+      "name": "first diagonal",
+      "label": "first diagonal (9)",
+      "parent": "6",
+      "points": [
+        "D1 origin",
+        "D1 mid",
+        "D1 distal",
+        "D1 end"
+      ]
+    },
+    {
+      "syntax": "10",
+      "name": "second diagonal",
+      "label": "second diagonal (10)",
+      "parent": "7",
+      "points": [
+        "D2 origin",
+        "D2 mid",
+        "D2 distal",
+        "D2 end"
+      ]
+    },
+    {
+      "syntax": "10a",
+      "name": "additional second diagonal",
+      "label": "additional second diagonal (10a)",
+      "parent": "7",
+      "points": [
+        "D3 origin",
+        "D3 mid",
+        "D3 distal",
+        "D3 end"
+      ]
+    },
+    {
+      "syntax": "11",
+      "name": "proximal LCx",
+      "label": "proximal LCx (11)",
+      "parent": "5",
+      "points": [
+        "MR origin",
+        "C1 proximal",
+        "C1 mid",
+        "M1 origin"
+      ]
+    },
+    {
+      "syntax": "12a",
+      "name": "first obtuse marginal",
+      "label": "first obtuse marginal (12a)",
+      "parent": "11",
+      "points": [
+        "M1 origin",
+        "M1 mid",
+        "OM1 distal",
+        "OM1 end"
+      ]
+    },
+    {
+      "syntax": "13",
+      "name": "distal LCx",
+      "label": "distal LCx (13)",
+      "parent": "11",
+      "points": [
+        "M1 origin",
+        "C2 mid",
+        "M2 origin",
+        "C3 mid",
+        "LCx end"
+      ]
+    },
+    {
+      "syntax": "12b",
+      "name": "second obtuse marginal",
+      "label": "second obtuse marginal (12b)",
+      "parent": "13",
+      "points": [
+        "M2 origin",
+        "M2 mid",
+        "OM2 distal",
+        "OM2 end"
+      ]
+    }
+  ],
+  "sideBranches": [
+    {
+      "id": "S1",
+      "name": "first septal",
+      "parent": "6",
+      "points": [
+        "S1 origin",
+        "S1 mid"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "second septal",
+      "parent": "7",
+      "points": [
+        "S2 origin",
+        "S2 mid"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "third septal",
+      "parent": "7",
+      "points": [
+        "S3 origin",
+        "S3 mid"
+      ]
+    }
+  ],
+  "bifurcations": [
+    {
+      "id": "LM",
+      "name": "left main into LAD and LCx",
+      "point": "MR origin",
+      "parent": "5",
+      "daughters": [
+        "6",
+        "11"
+      ],
+      "note": "Dodge did not measure the LM bifurcation; the MR origin (n=7) is used because the paper places it at the LM trifurcation."
+    },
+    {
+      "id": "LAD-D1",
+      "name": "LAD and first diagonal",
+      "point": "D1 origin",
+      "parent": "6",
+      "daughters": [
+        "6",
+        "9"
+      ]
+    },
+    {
+      "id": "LAD-D2",
+      "name": "LAD and second diagonal",
+      "point": "D2 origin",
+      "parent": "7",
+      "daughters": [
+        "7",
+        "10"
+      ]
+    },
+    {
+      "id": "LCx-OM1",
+      "name": "LCx and first obtuse marginal",
+      "point": "M1 origin",
+      "parent": "11",
+      "daughters": [
+        "13",
+        "12a"
+      ]
+    },
+    {
+      "id": "crux",
+      "name": "distal RCA into PDA and posterolateral",
+      "point": "crux",
+      "parent": "3",
+      "daughters": [
+        "4",
+        "16"
+      ]
+    }
+  ]
+}

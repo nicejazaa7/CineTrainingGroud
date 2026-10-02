@@ -23,6 +23,9 @@ _Avoid_: heart model, epicardium
 A named portion of the coronary tree model, identified by its SYNTAX (modified AHA) number and a plain name, for example "proximal LAD (6)".
 _Avoid_: branch (for a numbered portion), part
 
+**Side branch**:
+A vessel drawn in the coronary tree model that has no SYNTAX number, such as a septal branch. It helps orientation but is never a target.
+
 **Bifurcation**:
 A point where one vessel divides into two, described by its parent segment and its two daughter branches (for example LM into LAD and LCx).
 

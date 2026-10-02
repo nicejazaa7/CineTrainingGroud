@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "build:points": "node scripts/build-points.js"
+    "build:points": "node scripts/build-points.js",
+    "build:tree": "node scripts/build-tree.js"
   }
 }
