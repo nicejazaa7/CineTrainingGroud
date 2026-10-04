@@ -63,6 +63,10 @@ A **session** is one focused working sitting with Claude, with one deliverable a
 
 - Create a free GitHub account at github.com if you do not have one. Session 1 connects it with `gh auth login`, so no password passes through chat or files.
 
+## Viewing a draft locally
+
+From session 3 on, the page can be opened on your own computer. Start a small web server in the project folder with `python -m http.server 8123`, then open http://localhost:8123. A plain double-click on `index.html` does not work, because browsers block the page from loading the tree data from a file.
+
 ## Known risks
 
 - The Dodge tables are sparse (three points per main segment, branches stop at mid-course), so distal branches are authored.
