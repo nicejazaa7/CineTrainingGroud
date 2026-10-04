@@ -62,7 +62,7 @@ _Avoid_: preset, default view
 The shortening of a vessel segment on the image because it runs partly toward or away from the detector.
 
 **Overlap**:
-The share of a target's length on the image that is covered by other vessels, given as a percentage.
+The share of a target's length on the image where the shadow of another vessel of the same coronary touches or crosses it, given as a percentage. Shadows that meet at a branch point do not count ([ADR 0004](docs/adr/0004-target-measures.md)).
 
 **Target**:
 The segment or bifurcation a fellow wants to see clearly, and for which foreshortening and overlap are judged.
