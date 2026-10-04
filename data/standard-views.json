@@ -29,7 +29,7 @@
       "secondary": -30,
       "status": "draft",
       "opens": "The split of the left main (5) into LAD and LCx, seen with the two daughters spread apart like the legs of a spider. The proximal LCx (11) and distal LCx (13) are seen well.",
-      "hides": "The proximal LAD (6) and mid LAD (7) run toward the detector, so they look short. In this model the left main (5) is also shortened by about a third, because the Dodge data has it running straight to the patient's left. In many patients the left main looks longer here."
+      "hides": "The proximal LAD (6) and mid LAD (7) run toward the detector, so they look short. In this model the left main (5) is also shortened by about a third, because the Dodge data has it running straight to the patient's left. To see more of the left main (5), add more CAU; more LAO shortens it further. In real patients this view depends a lot on anatomy, and on a biplane machine the two C-arms block each other at steep LAO with CAU, so a shortened left main is common here."
     },
     {
       "id": "left-ap-cranial",

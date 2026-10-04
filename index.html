@@ -48,6 +48,7 @@
     .legend span { display: inline-block; width: 18px; height: 6px; border-radius: 3px; background: var(--clinical); vertical-align: middle; margin-right: 4px; }
     .toggle { display: flex; gap: 8px; align-items: center; }
     .toggle input { width: 18px; height: 18px; margin: 0; }
+    .choices { display: flex; flex-wrap: wrap; gap: 4px 16px; }
     .key { color: var(--muted); font-size: 12px; }
     .key b { font-weight: 600; }
     #angles, #views { display: grid; gap: 10px; align-content: start; }
@@ -84,6 +85,14 @@
         <input id="color-coding" type="checkbox">
         <span>Colour the angiogram by artery <span class="key">(<b style="color:#e04848">LM and LAD</b>, <b style="color:#3fb5a0">LCx</b>, <b style="color:#f0a030">RCA</b>)</span></span>
       </label>
+      <div class="row">
+        <span class="name">Injected coronary (a standard view sets this)</span>
+        <div class="choices">
+          <label class="toggle"><input type="radio" name="injected" value="left" checked><span>Left</span></label>
+          <label class="toggle"><input type="radio" name="injected" value="right"><span>Right</span></label>
+          <label class="toggle"><input id="other-coronary" type="checkbox"><span>Show the other coronary too</span></label>
+        </div>
+      </div>
     </div>
     <div id="views">
       <div class="row">

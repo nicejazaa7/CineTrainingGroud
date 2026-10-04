@@ -34,3 +34,10 @@ test('notes name segments exactly as the tree does, for example "proximal LAD (6
     }
   }
 });
+
+test('the injection splits the tree: RCA vessels are the right coronary, all others the left', async () => {
+  const { vessels } = await import('../src/vessels.js');
+  const list = vessels(tree);
+  assert.ok(list.every((v) => v.coronary === (v.artery === 'RCA' ? 'right' : 'left')));
+  assert.equal(list.filter((v) => v.coronary === 'right').length, 6, 'segments 1, 2, 3, 4, 16, 16a');
+});

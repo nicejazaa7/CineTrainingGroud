@@ -14,6 +14,16 @@ const applyColorCoding = () => angiogram.setColorCoding(colorCoding.checked);
 colorCoding.addEventListener('change', applyColorCoding);
 applyColorCoding();
 
+// One coronary holds contrast at a time; the other can be shown too, to see where a collateral goes.
+const injectedChoices = [...document.querySelectorAll('input[name=injected]')];
+const otherCoronary = document.getElementById('other-coronary');
+const applyInjection = () => {
+  const injected = injectedChoices.find((c) => c.checked).value;
+  angiogram.setInjected(otherCoronary.checked ? ['left', 'right'] : [injected]);
+};
+for (const c of [...injectedChoices, otherCoronary]) c.addEventListener('change', applyInjection);
+applyInjection();
+
 const inputs = {};
 for (const key of ['primary', 'secondary']) {
   const input = document.getElementById(key);
@@ -48,6 +58,8 @@ function show([primary, secondary]) {
 function moveTo(view) {
   cancelAnimationFrame(move);
   selectView(view);
+  for (const c of injectedChoices) c.checked = c.value === view.coronary;
+  applyInjection();
   const from = current;
   const to = [view.primary, view.secondary];
   const duration = moveDurationMs(from, to);

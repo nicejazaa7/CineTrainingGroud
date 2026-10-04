@@ -42,6 +42,8 @@ export function createAngiogram(container, tree) {
 
   let pose = carmPose(0, 0, tree.shell.center);
   let colorCoding = false;
+  // The coronaries that hold contrast: 'left', 'right' or both.
+  let injected = new Set(['left', 'right']);
 
   function draw() {
     const { width, height } = canvas;
@@ -72,7 +74,7 @@ export function createAngiogram(container, tree) {
 
     // Vessels lie near the isocenter, so they share its magnification.
     const widthOf = (t) => VESSEL_DIAMETER_CM[t.size] * px * (SOURCE_TO_DETECTOR_CM / SOURCE_TO_ISOCENTER_CM);
-    for (const t of tubes) {
+    for (const t of tubes.filter((t) => injected.has(t.coronary))) {
       layer((c) => {
         c.lineCap = 'round';
         c.lineJoin = 'round';
@@ -117,6 +119,10 @@ export function createAngiogram(container, tree) {
     },
     setColorCoding(on) {
       colorCoding = on;
+      draw();
+    },
+    setInjected(coronaries) {
+      injected = new Set(coronaries);
       draw();
     },
   };
