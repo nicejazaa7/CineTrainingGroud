@@ -8,6 +8,8 @@ const DEG = Math.PI / 180;
 
 export const SOURCE_TO_DETECTOR_CM = 100;
 export const SOURCE_TO_ISOCENTER_CM = 75;
+// Square detector, 25 cm across: a common field size for coronary angiography.
+export const DETECTOR_HALF_CM = 12.5;
 
 export const FULL_RANGE = { primary: [-120, 120], secondary: [-45, 45] };
 export const CLINICAL_RANGE = { primary: [-30, 60], secondary: [-40, 40] };
@@ -29,6 +31,15 @@ export function carmPose(primaryDeg, secondaryDeg, isocenter = [0, 0, 0]) {
     source: along(-SOURCE_TO_ISOCENTER_CM),
     detector: along(SOURCE_TO_DETECTOR_CM - SOURCE_TO_ISOCENTER_CM),
   };
+}
+
+// Where the X-ray from the source through point p hits the detector (perspective projection).
+// Returns [right, up] in cm from the detector center, along the picture axes of `pose`.
+export function projectToDetector(pose, p) {
+  const d = p.map((v, i) => v - pose.source[i]);
+  const along = (axis) => d[0] * axis[0] + d[1] * axis[1] + d[2] * axis[2];
+  const magnification = SOURCE_TO_DETECTOR_CM / along(pose.towardDetector);
+  return [magnification * along(pose.imageRight), magnification * along(pose.imageUp)];
 }
 
 // "LAO 40 / CAU 25", "AP / CRA 30", "RAO 30".

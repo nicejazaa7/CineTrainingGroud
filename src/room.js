@@ -3,19 +3,18 @@
 // so the patient lies supine and "up" in the room is +z.
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { carmPose, SOURCE_TO_DETECTOR_CM, SOURCE_TO_ISOCENTER_CM } from './carm.js';
+import { carmPose, SOURCE_TO_DETECTOR_CM, SOURCE_TO_ISOCENTER_CM, DETECTOR_HALF_CM } from './carm.js';
+import { MIDLINE_X, vertebrae, DIAPHRAGM } from './landmarks.js';
+import { vessels, ARTERY_COLOR } from './vessels.js';
 
 // Body, table and floor are authored for drawing only: rough adult sizes around the heart.
-const BODY = { midlineX: -1, backZ: -12, frontZ: 11, halfWidth: 17, shoulderY: 15, hipY: -45 };
+const BODY = { midlineX: MIDLINE_X, backZ: -12, frontZ: 11, halfWidth: 17, shoulderY: 15, hipY: -45 };
 const TABLE = { topZ: BODY.backZ - 0.5, thickness: 4, halfWidth: 25, headY: 50, footY: -160 };
 const FLOOR_Z = -100;
 
 const ARC_RADIUS_CM = 80;
 const DETECTOR_CM = SOURCE_TO_DETECTOR_CM - SOURCE_TO_ISOCENTER_CM;
-const DETECTOR_HALF_CM = 15;
-
-const ARTERY_COLOR = { LM: 0xe04848, LAD: 0xe04848, LCx: 0x3fb5a0, RCA: 0xf0a030 };
-const MAIN_VESSELS = new Set(['1', '2', '3', '5', '6', '7', '8', '11', '13']);
+const VESSEL_RADIUS = { main: 0.15, branch: 0.1, side: 0.06 };
 
 export function createRoomView(container, tree) {
   const isocenter = new THREE.Vector3(...tree.shell.center);
@@ -27,7 +26,7 @@ export function createRoomView(container, tree) {
   sun.position.set(-100, -150, 300);
   scene.add(sun);
 
-  scene.add(drawRoom(), drawPatient(), drawShell(tree.shell), drawTree(tree));
+  scene.add(drawRoom(), drawPatient(), drawLandmarks(), drawShell(tree.shell), drawTree(tree));
   const carm = drawCarm();
   scene.add(carm);
 
@@ -114,6 +113,25 @@ function drawPatient() {
   return group;
 }
 
+// Faint spine and diaphragm domes. The scene's y axis is the head, so a dome is the top half of a sphere.
+function drawLandmarks() {
+  const group = new THREE.Group();
+  const bone = new THREE.MeshStandardMaterial({ color: 0xe8e0cc, transparent: true, opacity: 0.35, depthWrite: false });
+  for (const v of vertebrae()) {
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(v.radius, v.radius, v.height, 24), bone);
+    body.position.set(...v.center);
+    group.add(body);
+  }
+  const muscle = new THREE.MeshStandardMaterial({ color: 0x9a6a5a, transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide });
+  for (const d of DIAPHRAGM) {
+    const dome = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 12, 0, 2 * Math.PI, 0, Math.PI / 2), muscle);
+    dome.scale.set(...d.radii);
+    dome.position.set(...d.center);
+    group.add(dome);
+  }
+  return group;
+}
+
 function drawShell(shell) {
   const [a0, a1] = shell.axes.map((a) => new THREE.Vector3(...a));
   const mesh = new THREE.Mesh(
@@ -128,21 +146,11 @@ function drawShell(shell) {
 
 function drawTree(tree) {
   const group = new THREE.Group();
-  const bySyntax = new Map(tree.segments.map((s) => [s.syntax, s]));
-  const artery = (syntax) => {
-    if (syntax === '5') return 'LM';
-    if (syntax === '6') return 'LAD';
-    if (syntax === '11') return 'LCx';
-    const s = bySyntax.get(syntax);
-    return s.parent === null ? 'RCA' : artery(s.parent);
-  };
-  const vessel = (names, radius, color) => {
-    const curve = new THREE.CatmullRomCurve3(names.map((n) => new THREE.Vector3(tree.points[n].x, tree.points[n].y, tree.points[n].z)));
-    const material = new THREE.MeshStandardMaterial({ color });
-    group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 8 * names.length, radius, 8), material));
-  };
-  for (const s of tree.segments) vessel(s.points, MAIN_VESSELS.has(s.syntax) ? 0.15 : 0.1, ARTERY_COLOR[artery(s.syntax)]);
-  for (const b of tree.sideBranches) vessel(b.points, 0.06, ARTERY_COLOR[artery(b.parent)]);
+  for (const v of vessels(tree)) {
+    const curve = new THREE.CatmullRomCurve3(v.points.map((n) => new THREE.Vector3(tree.points[n].x, tree.points[n].y, tree.points[n].z)));
+    const material = new THREE.MeshStandardMaterial({ color: ARTERY_COLOR[v.artery] });
+    group.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 8 * v.points.length, VESSEL_RADIUS[v.size], 8), material));
+  }
   return group;
 }
 
