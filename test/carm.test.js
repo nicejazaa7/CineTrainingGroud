@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  carmPose, formatProjection, FULL_RANGE, CLINICAL_RANGE,
+  carmPose, formatProjection, projectionDuringMove, moveDurationMs, FULL_RANGE, CLINICAL_RANGE,
   SOURCE_TO_DETECTOR_CM, SOURCE_TO_ISOCENTER_CM,
 } from '../src/carm.js';
 import { polarToCartesian } from '../src/dodge.js';
@@ -81,4 +81,23 @@ test('clinical range lies inside the full range', () => {
   for (const k of ['primary', 'secondary']) {
     assert.ok(FULL_RANGE[k][0] <= CLINICAL_RANGE[k][0] && CLINICAL_RANGE[k][1] <= FULL_RANGE[k][1], k);
   }
+});
+
+test('a C-arm move starts and ends at the chosen projections and passes halfway at the middle', () => {
+  const from = [-30, -25];
+  const to = [90, 0];
+  close(projectionDuringMove(from, to, 0), from, 'start');
+  close(projectionDuringMove(from, to, 1), to, 'end');
+  close(projectionDuringMove(from, to, 0.5), [30, -12.5], 'middle');
+  let last = -Infinity;
+  for (let t = 0; t <= 1; t += 0.05) {
+    const [primary] = projectionDuringMove(from, to, t);
+    assert.ok(primary >= last, 'never moves backward');
+    last = primary;
+  }
+});
+
+test('longer C-arm moves take longer', () => {
+  assert.equal(moveDurationMs([0, 0], [0, 0]), 400);
+  assert.ok(moveDurationMs([-30, -25], [90, 0]) > moveDurationMs([0, 30], [0, 35]));
 });

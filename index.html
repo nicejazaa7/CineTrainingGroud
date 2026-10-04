@@ -50,6 +50,15 @@
     .toggle input { width: 18px; height: 18px; margin: 0; }
     .key { color: var(--muted); font-size: 12px; }
     .key b { font-weight: 600; }
+    #angles, #views { display: grid; gap: 10px; align-content: start; }
+    /* Wide screens put the standard views beside the sliders. */
+    @media (min-width: 900px) { #controls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 32px; } }
+    .buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+    .buttons button { font: inherit; font-size: 13px; color: var(--text); background: var(--track); border: 0; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+    .buttons button[aria-pressed=true] { background: var(--clinical); }
+    #note p { margin: 4px 0 0; }
+    #note-name { font-weight: 600; }
+    #note-status { color: var(--muted); font-size: 12px; margin-left: 6px; }
   </style>
 </head>
 <body>
@@ -58,22 +67,39 @@
     <div id="angiogram"></div>
   </div>
   <div id="controls">
-    <div id="projection">AP</div>
-    <label class="row">
-      <span class="name">Primary angle (left–right)</span>
-      <span class="band"><input id="primary" type="range"></span>
-      <span class="ends"><span>RAO 120</span><span>AP</span><span>LAO 120</span></span>
-    </label>
-    <label class="row">
-      <span class="name">Secondary angle (head–foot)</span>
-      <span class="band"><input id="secondary" type="range"></span>
-      <span class="ends"><span>CAU 45</span><span>0</span><span>CRA 45</span></span>
-    </label>
-    <div class="legend"><span></span>Clinical range (LAO 60 to RAO 30, CRA 40 to CAU 40)</div>
-    <label class="toggle">
-      <input id="color-coding" type="checkbox">
-      <span>Colour the angiogram by artery <span class="key">(<b style="color:#e04848">LM and LAD</b>, <b style="color:#3fb5a0">LCx</b>, <b style="color:#f0a030">RCA</b>)</span></span>
-    </label>
+    <div id="angles">
+      <div id="projection">AP</div>
+      <label class="row">
+        <span class="name">Primary angle (left–right)</span>
+        <span class="band"><input id="primary" type="range"></span>
+        <span class="ends"><span>RAO 120</span><span>AP</span><span>LAO 120</span></span>
+      </label>
+      <label class="row">
+        <span class="name">Secondary angle (head–foot)</span>
+        <span class="band"><input id="secondary" type="range"></span>
+        <span class="ends"><span>CAU 45</span><span>0</span><span>CRA 45</span></span>
+      </label>
+      <div class="legend"><span></span>Clinical range (LAO 60 to RAO 30, CRA 40 to CAU 40)</div>
+      <label class="toggle">
+        <input id="color-coding" type="checkbox">
+        <span>Colour the angiogram by artery <span class="key">(<b style="color:#e04848">LM and LAD</b>, <b style="color:#3fb5a0">LCx</b>, <b style="color:#f0a030">RCA</b>)</span></span>
+      </label>
+    </div>
+    <div id="views">
+      <div class="row">
+        <span class="name">Standard views, left coronary</span>
+        <div class="buttons" id="views-left"></div>
+      </div>
+      <div class="row">
+        <span class="name">Standard views, right coronary</span>
+        <div class="buttons" id="views-right"></div>
+      </div>
+      <div id="note" hidden>
+        <div><span id="note-name"></span><span id="note-status"></span></div>
+        <p><b>Opens up:</b> <span id="note-opens"></span></p>
+        <p><b>Hides:</b> <span id="note-hides"></span></p>
+      </div>
+    </div>
   </div>
   <script type="module" src="src/app.js"></script>
 </body>

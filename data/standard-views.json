@@ -1,0 +1,105 @@
+{
+  "about": "The 10 standard views (docs/PLAN.md). Angles: primary LAO positive, RAO negative; secondary CRA positive, CAU negative (docs/adr/0003). Teaching notes: Claude drafts, the fellow edits, the attending approves. Set status to 'fellow edited' or 'attending approved' as a note moves on. Write segments as 'plain name (SYNTAX number)', exactly as in coronary-tree.json; a test checks this.",
+  "views": [
+    {
+      "id": "rao-caudal",
+      "name": "RAO caudal",
+      "coronary": "left",
+      "primary": -30,
+      "secondary": -25,
+      "status": "draft",
+      "opens": "The left main (5) and its split into LAD and LCx. The whole LCx runs across the picture: proximal LCx (11), distal LCx (13), first obtuse marginal (12a) and second obtuse marginal (12b) hang down from it. A good first view of the left coronary.",
+      "hides": "The mid LAD (7) is shortened by about a third, so judge the LAD in a cranial view."
+    },
+    {
+      "id": "ap-caudal",
+      "name": "AP caudal",
+      "coronary": "left",
+      "primary": 0,
+      "secondary": -30,
+      "status": "draft",
+      "opens": "The left main (5) at full length, with the proximal LCx (11) and the origins of the proximal LAD (6) and LCx. Useful for left main and ostial disease.",
+      "hides": "The mid LAD (7) runs toward the detector, so it looks short."
+    },
+    {
+      "id": "lao-caudal",
+      "name": "LAO caudal (spider)",
+      "coronary": "left",
+      "primary": 45,
+      "secondary": -30,
+      "status": "draft",
+      "opens": "The split of the left main (5) into LAD and LCx, seen with the two daughters spread apart like the legs of a spider. The proximal LCx (11) and distal LCx (13) are seen well.",
+      "hides": "The proximal LAD (6) and mid LAD (7) run toward the detector, so they look short. In this model the left main (5) is also shortened by about a third, because the Dodge data has it running straight to the patient's left. In many patients the left main looks longer here."
+    },
+    {
+      "id": "left-ap-cranial",
+      "name": "AP cranial",
+      "coronary": "left",
+      "primary": 0,
+      "secondary": 35,
+      "status": "draft",
+      "opens": "The mid LAD (7), with the first diagonal (9) and second diagonal (10) spread out to the patient's left. Good for the LAD and diagonal bifurcations.",
+      "hides": "The proximal LCx (11) and distal LCx (13) run toward the detector, so they look short, and they lie over the proximal LAD (6)."
+    },
+    {
+      "id": "rao-cranial",
+      "name": "RAO cranial",
+      "coronary": "left",
+      "primary": -30,
+      "secondary": 30,
+      "status": "draft",
+      "opens": "The whole LAD: proximal LAD (6), mid LAD (7) and apical LAD (8) at near full length. The septals leave the LAD downward.",
+      "hides": "In this model the first diagonal (9) and second diagonal (10) run close beside the LAD, so their origins are hard to judge here; use LAO cranial. The proximal LCx (11) is shortened by about half."
+    },
+    {
+      "id": "lao-cranial",
+      "name": "LAO cranial",
+      "coronary": "left",
+      "primary": 40,
+      "secondary": 35,
+      "status": "draft",
+      "opens": "The mid LAD (7) with the origins of the first diagonal (9) and second diagonal (10). The diagonals go to the picture's right (the patient's left) and the septals to the picture's left, so the LAD and diagonal bifurcations open up.",
+      "hides": "The proximal LAD (6) is shortened by about a third. The distal LCx (13) runs toward the detector, so it looks short."
+    },
+    {
+      "id": "left-lateral",
+      "name": "Left lateral",
+      "coronary": "left",
+      "primary": 90,
+      "secondary": 0,
+      "status": "draft",
+      "opens": "The mid LAD (7) and apical LAD (8) at full length along the front of the heart, and the distal LCx (13) along the back. The LAD and LCx lie on opposite sides of the picture. Useful for the mid and distal LAD and for a bypass graft to the LAD.",
+      "hides": "The left main (5) points straight at the detector, so it is barely seen. The proximal LAD (6) is shortened."
+    },
+    {
+      "id": "lao-30",
+      "name": "LAO 30",
+      "coronary": "right",
+      "primary": 30,
+      "secondary": 0,
+      "status": "draft",
+      "opens": "The proximal RCA (1), mid RCA (2) and distal RCA (3) as a \"C\" shape, from the ostium to the crux. The usual first view of the right coronary, and the view for the ostium.",
+      "hides": "The posterior descending (4) runs toward the detector, so it looks short."
+    },
+    {
+      "id": "rao-30",
+      "name": "RAO 30",
+      "coronary": "right",
+      "primary": -30,
+      "secondary": 0,
+      "status": "draft",
+      "opens": "The mid RCA (2) and the posterior descending (4) at full length, as an \"L\" shape. The view for the length of the PDA.",
+      "hides": "The distal RCA (3) runs toward the detector, so the crux is crowded. The proximal RCA (1) is shortened."
+    },
+    {
+      "id": "right-ap-cranial",
+      "name": "AP cranial",
+      "coronary": "right",
+      "primary": 0,
+      "secondary": 30,
+      "status": "draft",
+      "opens": "The crux and the split of the distal RCA (3) into the posterior descending (4) and right posterolateral (16), with the first right posterolateral branch (16a). The view for the distal RCA bifurcation.",
+      "hides": "The distal RCA (3) and mid RCA (2) are shortened."
+    }
+  ]
+}

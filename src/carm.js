@@ -42,6 +42,18 @@ export function projectToDetector(pose, p) {
   return [magnification * along(pose.imageRight), magnification * along(pose.imageUp)];
 }
 
+// A smooth C-arm move from one [primary, secondary] projection to another. Both angles move
+// together, starting and stopping gently. t runs from 0 (start) to 1 (end).
+export function projectionDuringMove(from, to, t) {
+  const eased = t * t * (3 - 2 * t);
+  return from.map((v, i) => v + (to[i] - v) * eased);
+}
+
+// Longer moves take longer: 0.4 s plus 8 ms per degree of the larger angle change.
+export function moveDurationMs(from, to) {
+  return 400 + 8 * Math.max(...from.map((v, i) => Math.abs(to[i] - v)));
+}
+
 // "LAO 40 / CAU 25", "AP / CRA 30", "RAO 30".
 export function formatProjection(primaryDeg, secondaryDeg) {
   const primary = primaryDeg === 0 ? 'AP' : `${primaryDeg > 0 ? 'LAO' : 'RAO'} ${Math.abs(primaryDeg)}`;
