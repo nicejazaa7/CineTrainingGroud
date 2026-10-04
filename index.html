@@ -15,6 +15,8 @@
   <style>
     :root { --bg: #15181d; --panel: #1e232a; --text: #e8ecf1; --muted: #9aa4b1; --track: #3a414b; --clinical: #6d7f9e; --thumb: 22px; }
     * { box-sizing: border-box; }
+    /* Keep hidden boxes hidden even when their class sets a display, such as .row. */
+    [hidden] { display: none !important; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 15px/1.4 system-ui, sans-serif; }
     body { display: flex; flex-direction: column; }
     #panels { flex: 1; min-height: 0; display: flex; }
@@ -73,6 +75,10 @@
     .dot.green { background: #3fb950; }
     .dot.amber { background: #e3b341; }
     .dot.red { background: #f85149; }
+    .map-frame { display: grid; gap: 2px; max-width: 560px; }
+    .axis-up, .axis-down { color: var(--muted); font-size: 12px; }
+    #angle-map canvas { display: block; width: 100%; cursor: crosshair; touch-action: manipulation; }
+    .variation { margin: 4px 0 0; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -125,6 +131,16 @@
         <span class="name">Target (green: foreshortening 10% or less and overlap 5% or less; red: foreshortening 20% or more or overlap over 20%)</span>
         <div id="target-result"></div>
         <button id="focus" type="button" hidden>Focus on this target</button>
+      </div>
+      <div id="map-box" class="row" hidden>
+        <span class="name">Best angle map for this target. Each spot is one projection, coloured as above. Dashed box: clinical range. Dots: standard views. Ring: the C-arm now. Tap the map to move the C-arm there.</span>
+        <div class="map-frame">
+          <span class="axis-up">CRA 45</span>
+          <div id="angle-map"></div>
+          <span class="axis-down">CAU 45</span>
+          <span class="ends"><span>RAO 120</span><span>AP</span><span>LAO 120</span></span>
+        </div>
+        <p class="variation">Best angles differ from patient to patient. Use the map to learn which way to move the C-arm, not an exact number.</p>
       </div>
     </div>
   </div>

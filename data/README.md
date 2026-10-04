@@ -96,3 +96,7 @@ These guides are first drafts. Session 5 may move them to match textbook standar
 - R3 mid and RD mid have a very wide θ spread (±64°, ±60°), because they point almost straight down. RD mid sits 0.68 cm inside the shell, which suggests its mean is off the true path.
 - Every RCA point depends on the RCA ostium position, which rests on 6 patients.
 - Dodge measured no origin for RD, RI or RP. The crux is authored, and RI is drawn from R4 mid.
+
+## angle-maps.json
+
+The best angle map of every target, made by `npm run build:maps` from `coronary-tree.json` and the measures in `src/measure.js`. Do not edit it by hand. Rebuild it after changing the tree, the measures or the traffic-light thresholds; a test fails if it is stale. Layout and reasons: [ADR 0005](../docs/adr/0005-best-angle-map.md).

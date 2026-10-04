@@ -2,9 +2,11 @@ import { createRoomView } from './room.js';
 import { createAngiogram } from './angiogram.js';
 import { FULL_RANGE, CLINICAL_RANGE, carmPose, formatProjection, projectionDuringMove, moveDurationMs } from './carm.js';
 import { measureModel, measureTarget, pickTarget, foreshorteningColor, overlapColor, ORIGIN_CM, CARINA_OPEN_SHARE } from './measure.js';
+import { targetKey } from './anglemap.js';
+import { createAngleMap } from './mapview.js';
 
-const [tree, { views }] = await Promise.all(
-  ['data/coronary-tree.json', 'data/standard-views.json'].map(async (url) => (await fetch(url)).json()),
+const [tree, { views }, { maps }] = await Promise.all(
+  ['data/coronary-tree.json', 'data/standard-views.json', 'data/angle-maps.json'].map(async (url) => (await fetch(url)).json()),
 );
 const room = createRoomView(document.getElementById('room'), tree);
 const model = measureModel(tree);
@@ -68,6 +70,7 @@ function show([primary, secondary]) {
   if (!result && document.body.classList.contains('focus')) setFocus(false);
   angiogram.setProjection(primary, secondary, result && { pieces: result.highlight, at: result.at, color: result.color });
   showResult(result);
+  showMap(primary, secondary);
   inputs.primary.value = primary;
   inputs.secondary.value = secondary;
   document.getElementById('projection').textContent = formatProjection(Math.round(primary), Math.round(secondary));
@@ -75,12 +78,16 @@ function show([primary, secondary]) {
 
 // Turns the C-arm smoothly from where it is to the chosen standard view.
 function moveTo(view) {
-  cancelAnimationFrame(move);
   selectView(view);
   for (const c of injectedChoices) c.checked = c.value === view.coronary;
   applyInjection();
+  glide([view.primary, view.secondary]);
+}
+
+// Turns the C-arm smoothly from where it is to the [primary, secondary] projection `to`.
+function glide(to) {
+  cancelAnimationFrame(move);
   const from = current;
-  const to = [view.primary, view.secondary];
   const duration = moveDurationMs(from, to);
   const start = performance.now();
   const step = (now) => {
@@ -149,6 +156,21 @@ function showResult(result) {
   }
   box.innerHTML = `<p class="result-title">${dot(result.color)}<b>${result.label}</b>: ${LIGHT_WORD[result.color]}</p>
     <table><thead><tr><th></th><th>Foreshortening</th><th>Overlap</th></tr></thead><tbody>${rows}</tbody></table>${extra}`;
+}
+
+// The best angle map of the selected target (docs/PLAN.md session 7), with its coronary's standard views.
+const mapBox = document.getElementById('map-box');
+const angleMap = createAngleMap(document.getElementById('angle-map'), (primary, secondary, view) => {
+  if (view) return moveTo(view);
+  selectView(null);
+  glide([primary, secondary]);
+});
+function showMap(primary, secondary) {
+  mapBox.hidden = !selected;
+  if (!selected) return angleMap.setMap(null, []);
+  const coronary = coronaryOf(selected);
+  angleMap.setMap(maps[targetKey(selected)], views.filter((v) => v.coronary === coronary));
+  angleMap.setProjection(primary, secondary);
 }
 
 show(current);
